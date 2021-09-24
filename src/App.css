@@ -1,38 +1,332 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  font-family: "Poppins";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-container {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  margin: 0;
+  height: 10%;
+  width: 100%;
+  background: hsla(207, 100%, 50%, 1);
+
+  background: linear-gradient(
+    45deg,
+    hsla(207, 100%, 50%, 1) 0%,
+    hsla(183, 100%, 32%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(207, 100%, 50%, 1) 0%,
+    hsla(183, 100%, 32%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(207, 100%, 50%, 1) 0%,
+    hsla(183, 100%, 32%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#008dff", endColorstr="#009ba2", GradientType=1 );
+
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header-container h1 {
+  font-size: 1.2em;
+}
+
+.header-left {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 1%;
+}
+
+.header-right {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-right: 1%;
+}
+
+.header-right i {
+  margin-left: 3%;
+  transition-duration: 0.25s;
+  color: #fff;
+}
+
+.header-right i:hover {
+  cursor: pointer;
+  color: #ff5752;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-container h1 {
+    font-size: 1.6em;
+  }
+
+  .header-right h1 {
+    display: none;
+  }
+
+  .header-right {
+    display: flex;
+    width: fit-content;
+    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: auto;
+  }
+
+  .header-right i {
+    font-size: 2em;
+  }
+
+  .header-left {
+    justify-content: center;
+    margin-left: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-container {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  background-color: #181c20;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container h1 {
+  color: #fff;
+  font-size: 2em;
+}
+.login-container h1::before {
+  content: "Please Sign In before using";
+  color: #fff;
+}
+.login-container h1::after {
+  content: " Unicom";
+  color: #049ca4;
+}
+
+.login-container button {
+  border-radius: 999px;
+  text-align: center;
+  padding: 5px 10px 10px 10px;
+  outline: none;
+  border: none;
+  font-family: "Montserrat";
+  min-width: 6%;
+  width: fit-content;
+  min-height: 4%;
+  height: fit-content;
+  font-size: 1.2em;
+  transition-duration: 1s;
+}
+
+.login-container button:hover {
+  background: hsla(207, 100%, 50%, 1);
+
+  background: linear-gradient(
+    45deg,
+    hsla(207, 100%, 50%, 1) 0%,
+    hsla(183, 100%, 32%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(207, 100%, 50%, 1) 0%,
+    hsla(183, 100%, 32%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(207, 100%, 50%, 1) 0%,
+    hsla(183, 100%, 32%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#008dff", endColorstr="#009ba2", GradientType=1 );
+  color: #fff;
+
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 545px) {
+  .login-container h1 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 416px) {
+  .login-container h1 {
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 276px) {
+  .login-container h1::after {
+    content: "Please";
+    color: #fff;
+  }
+  .login-container h1::before {
+    content: "";
+  }
+  .login-container h1 {
+    font-size: 2em;
+  }
+  .login-container button {
+    background: none;
+    color: #049ca4;
+  }
+}
+
+.messenger-container {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 5.8%;
+  margin: 0;
+  padding: 0;
+  background-color: #181c20;
+}
+
+body {
+  overflow: hidden;
+}
+
+.channels-container {
+  position: relative;
+  width: 25%;
+  height: 94.1%;
+  margin: 0;
+  padding: 0;
+  border-right: 0.13em solid #4e5361;
+  top: 0%;
+  overflow-y:scroll;
+  overflow-x:hidden;
+
+}
+
+
+
+
+#h1-channels {
+  color: #fff;
+}
+
+.ccard-flexbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.ccard-container {
+  position: relative;
+  width: 95%;
+  width: 95%;
+  height: 12%;
+  background-color: #333745;
+  border-radius: 30px;
+  margin-bottom: 3%;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ccard-container h1 {
+  color: #049ca4;
+  font-size: 1.5em;
+  margin-left: 3%;
+}
+
+.ccard-container h2 {
+  color: #fff;
+  font-size: 1em;
+  margin-top: -5%;
+  margin-left: 4%;
+}
+
+@media screen and (max-height: 900px) {
+    .ccard-container {
+      height: 13%;
+    }
+}
+@media screen and (max-height: 737px) {
+    .ccard-container {
+      height: 16%;
+    }
+}
+@media screen and (max-height: 603px) {
+    .ccard-container {
+      height: 20%;
+    }
+}
+@media screen and (max-height: 488px) {
+    .ccard-container {
+      height: 25%;
+    }
+}
+@media screen and (max-height: 387px) {
+    .ccard-container {
+      height: 30%;
+    }
+}
+@media screen and (max-height: 308px) {
+    .ccard-container {
+      height: 7em;
+    }
+}
+
+
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4e5361;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5d626e;
+}
+
+#noChannels {
+  color: #fff;
+}
+#noChannels::after {
+  content: 'yet.';
+  color: #049ca4;
 }
