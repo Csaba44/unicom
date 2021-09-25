@@ -77,6 +77,12 @@
     font-size: 1.6em;
   }
 
+  .header-container {
+    z-index: 1111;
+    position: absolute;
+    height: 6%;
+  }
+
   .header-right h1 {
     display: none;
   }
@@ -89,6 +95,7 @@
     align-items: center;
     align-content: center;
     height: auto;
+    text-align: center;
   }
 
   .header-right i {
@@ -98,6 +105,12 @@
   .header-left {
     justify-content: center;
     margin-left: 0;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
   }
 }
 
@@ -225,16 +238,14 @@ body {
   padding: 0;
   border-right: 0.13em solid #4e5361;
   top: 0%;
-  overflow-y:scroll;
-  overflow-x:hidden;
-
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-
-
-
-#h1-channels {
+#h1-channels::after {
+  content: "Channels";
   color: #fff;
+  margin-left: 2%;
 }
 
 .ccard-flexbox {
@@ -258,6 +269,10 @@ body {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
 }
 
+.ccard-container:hover {
+  cursor: pointer;
+}
+
 .ccard-container h1 {
   color: #049ca4;
   font-size: 1.5em;
@@ -272,37 +287,86 @@ body {
 }
 
 @media screen and (max-height: 900px) {
-    .ccard-container {
-      height: 13%;
-    }
+  .ccard-container {
+    height: 13%;
+  }
 }
 @media screen and (max-height: 737px) {
-    .ccard-container {
-      height: 16%;
-    }
+  .ccard-container {
+    height: 16%;
+  }
 }
 @media screen and (max-height: 603px) {
-    .ccard-container {
-      height: 20%;
-    }
+  .ccard-container {
+    height: 20%;
+  }
 }
 @media screen and (max-height: 488px) {
-    .ccard-container {
-      height: 25%;
-    }
+  .ccard-container {
+    height: 25%;
+  }
 }
 @media screen and (max-height: 387px) {
-    .ccard-container {
-      height: 30%;
-    }
+  .ccard-container {
+    height: 30%;
+  }
 }
 @media screen and (max-height: 308px) {
-    .ccard-container {
-      height: 7em;
-    }
+  .ccard-container {
+    height: 7em;
+  }
 }
 
+@media screen and (max-width: 1183px) {
+  .ccard-container {
+    height: 18%;
+  }
+}
+@media screen and (max-width: 813px) {
+  .ccard-container {
+    height: 23%;
+  }
+}
+@media screen and (max-width: 609px) {
+  .ccard-container {
+    height: fit-content;
+  }
+}
+@media screen and (max-width: 591px) {
+  .ccard-container h2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 474px) {
+  .ccard-container h1 {
+    word-wrap: break-word;
+  }
+}
 
+@media screen and (max-width: 687px) {
+  #h1-channels::after {
+    content: "Ch.";
+    margin-left: 30%;
+  }
+}
+@media screen and (max-width: 371px) {
+  #h1-channels::after {
+    content: "Ch.";
+    margin-left: 20%;
+  }
+}
+@media screen and (max-width: 329px) {
+  #h1-channels::after {
+    content: "Ch.";
+    margin-left: 10%;
+  }
+}
+@media screen and (max-width: 281px) {
+  #h1-channels::after {
+    content: "C.";
+    margin-left: 0%;
+  }
+}
 
 ::-webkit-scrollbar {
   width: 20px;
@@ -327,6 +391,74 @@ body {
   color: #fff;
 }
 #noChannels::after {
-  content: 'yet.';
+  content: "yet.";
   color: #049ca4;
+}
+
+.messages-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: right;
+  z-index: -50;
+}
+
+.messages-box {
+  position: absolute;
+  background-color: #181c20;
+  width: 74.9%;
+  height: 100%;
+  top: 0;
+}
+
+.messages-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  text-align: center;
+  align-items: center;
+  border-bottom: 0.13em solid #4e5361;
+}
+
+.messages-header h1 {
+  color: #fff;
+  margin-left: 0.5%;
+}
+
+.messages-header-left {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+.messages-header-right {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.messages-header-right-user-pfp {
+  border-radius: 50%;
+  width: 2.5em;
+  margin-right: 1.5%;
+  border: 0.1em solid #4e5361;
+  padding: 3px;
+}
+
+@media screen and (max-width: 701px) {
+  .messages-header-right {
+    width: 0%;
+    outline: 1px solid blue;
+    display: none;
+  }
+
+  .messages-header-left {
+    justify-content: center;
+  }
 }
