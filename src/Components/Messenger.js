@@ -6,7 +6,7 @@ export default function Messenger() {
   const [channels, setChannels] = useState(false);
   const [loading, setLoading] = useState(false);
   const [currChannel, setCurrChannel] = useState(false);
-  const [currChannelName, setCurrChannelName] = useState(false)
+  const [currChannelName, setCurrChannelName] = useState(false);
 
   useEffect(() => {
     const fetchChannels = async () => {
@@ -27,11 +27,11 @@ export default function Messenger() {
   });
 
   function changeChannel(id, name) {
-    setCurrChannel(id)
+    setCurrChannel(id);
     setCurrChannelName(name);
   }
   //log:
-  console.log(currChannel + ' :: ' + currChannelName);
+  console.log(currChannel + " :: " + currChannelName);
 
   if (!loading) {
     if (user) {
@@ -43,7 +43,9 @@ export default function Messenger() {
               <div className="ccard-flexbox">
                 {channels.map((channel) => (
                   <div
-                    onClick={() => changeChannel(channel.id, channel.data().name)}
+                    onClick={() =>
+                      changeChannel(channel.id, channel.data().name)
+                    }
                     className="ccard-container"
                   >
                     <h1>{channel.data().name}</h1>
@@ -55,16 +57,30 @@ export default function Messenger() {
 
             <div className="messages-container">
               <div className="messages-box">
-                  <div className="messages-header">
-                    <div className="messages-header-left">
-                      <h1>{currChannelName ? currChannelName : 'Select a channel'}</h1>
-                    </div>
-                    <div className="messages-header-right">
-                      <img className="messages-header-right-user-pfp" src={user.photoURL} alt="User PFP" />
-                    </div>
+                <div className="messages-header">
+                  <div className="messages-header-left">
+                    <h1>
+                      {currChannelName ? currChannelName : "Select a channel"}
+                    </h1>
                   </div>
-
-
+                  <div className="messages-header-right">
+                    <img
+                      className="messages-header-right-user-pfp"
+                      src={user.photoURL}
+                      alt="User PFP"
+                    />
+                  </div>
+                </div>
+                <div className="messenger-flexbox">
+                  {currChannelName ? 
+                    <div className="messenger-bottom">
+                      <input type="text" placeholder="Type your message here..." />
+                      <div className="messenger-send-box">
+                        <i className="far fa-reply-all "></i>
+                      </div>
+                    </div>
+                   : <></>}
+                </div>
               </div>
             </div>
           </div>
