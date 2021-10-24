@@ -33,10 +33,12 @@
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#008dff", endColorstr="#009ba2", GradientType=1 );
 
   color: #fff;
+  
 }
 
 .header-container h1 {
   font-size: 1.2em;
+  
 }
 
 .header-left {
@@ -48,6 +50,7 @@
   justify-content: left;
   align-items: center;
   margin-left: 1%;
+  
 }
 
 .header-right {
@@ -59,6 +62,7 @@
   justify-content: right;
   align-items: center;
   margin-right: 1%;
+  
 }
 
 .header-right i {
@@ -220,7 +224,7 @@
   position: absolute;
   top: 30%;
   width: 100%;
-  height: 100%;
+  height: 94.2%;
   z-index: 2;
   top: 5.8%;
   margin: 0;
@@ -229,20 +233,21 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-x: visible;
+  overflow-y: visible;
 }
 
 .channels-container {
   font-family: "Poppins";
   position: relative;
   width: 25%;
-  height: 94.1%;
+  height: 100%;
   margin: 0;
   padding: 0;
   border-right: 0.13em solid #4e5361;
   top: 0%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-y: hidden;
+  overflow-x:hidden;
 }
 
 #h1-channels::after {
@@ -259,6 +264,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .ccard-container {
@@ -272,6 +278,7 @@ body {
   margin-bottom: 3%;
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  
 }
 
 .ccard-container:hover {
@@ -404,11 +411,10 @@ body {
 .messages-container {
   font-family: "Poppins";
   position: absolute;
-  width: 100%;
+  width: 75%;
   height: 100%;
   top: 0;
-  display: flex;
-  justify-content: right;
+  left: 25%;
   z-index: -50;
 }
 
@@ -416,7 +422,7 @@ body {
   font-family: "Poppins";
   position: absolute;
   background-color: #1e2431;
-  width: 74.9%;
+  width: 100%;
   height: 100%;
   top: 0;
 }
@@ -431,6 +437,7 @@ body {
   text-align: center;
   align-items: center;
   border-bottom: 0.13em solid #4e5361;
+  
 }
 
 .messages-header h1 {
@@ -445,6 +452,7 @@ body {
   display: flex;
   justify-content: left;
   align-items: center;
+  
 }
 
 .messages-header-left i {
@@ -461,6 +469,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: right;
+  
 }
 
 .messages-header-right-user-pfp {
@@ -475,7 +484,6 @@ body {
 @media screen and (max-width: 701px) {
   .messages-header-right {
     width: 0%;
-    outline: 1px solid blue;
     display: none;
   }
 
@@ -489,10 +497,21 @@ body {
   position: relative;
   top: 5.8em;
   width: 100%;
-  height: 100%;
+  height: 84%;
   display: flex;
   background-color: #1e2431;
 }
+
+.messenger-messages-box {
+  position: absolute;
+  width: 100%;
+  height: 93%;
+  left: 0%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
 
 .messenger-bottom {
   font-family: "Poppins";
@@ -502,8 +521,73 @@ body {
   height: 6%;
   justify-content: center;
   align-items: center;
-  top: 78%;
+  top: 98%;
 }
+
+@media screen and (max-height: 781px) {
+  .messenger-bottom {
+    top: 96%;
+  }
+}
+@media screen and (max-height: 679px) {
+  .messenger-bottom {
+    top: 95%;
+  }
+}
+@media screen and (max-height: 642px) {
+  .messenger-bottom {
+    top: 94%;
+  }
+}
+@media screen and (max-height: 609px) {
+  .messenger-flexbox {
+    height: 82%;
+  }
+}
+@media screen and (max-height: 545px) {
+  .messenger-flexbox {
+    height: 80%;
+  }
+}
+@media screen and (max-height: 507px) {
+  .messenger-flexbox {
+    height: 78%;
+  }
+}
+@media screen and (max-height: 466px) {
+  .messenger-flexbox {
+    height: 75%;
+  }
+}
+@media screen and (max-height: 417px) {
+  .messenger-flexbox {
+    height: 73%;
+  }
+  .messenger-bottom {
+    height: 10%;
+  }
+}
+@media screen and (max-height: 410px) {
+  .messenger-flexbox {
+    height: 70%;
+  }
+}
+@media screen and (max-height: 374px) {
+  .messenger-flexbox {
+    height: 67%;
+  }
+}
+@media screen and (max-height: 337px) {
+  .messenger-flexbox {
+    height: 64%;
+  }
+}
+@media screen and (max-height: 311px) {
+  .messenger-flexbox {
+    height: 61%;
+  }
+}
+
 
 .messenger-bottom input {
   font-family: "Montserrat";
@@ -547,41 +631,6 @@ body {
   background-color: #333745;
 }
 
-@media screen and (max-height: 883px) {
-  .messenger-bottom {
-    top: 76%;
-  }
-}
-@media screen and (max-height: 751px) {
-  .messenger-bottom {
-    top: 75%;
-  }
-}
-@media screen and (max-height: 687px) {
-  .messenger-bottom {
-    top: 74%;
-  }
-}
-@media screen and (max-height: 626px) {
-  .messenger-bottom {
-    top: 70%;
-  }
-}
-@media screen and (max-height: 501px) {
-  .messenger-bottom {
-    top: 65%;
-  }
-}
-@media screen and (max-height: 412px) {
-  .messenger-bottom {
-    top: 60%;
-  }
-}
-@media screen and (max-height: 333px) {
-  .messenger-bottom {
-    top: 55%;
-  }
-}
 
 @media screen and (max-width: 1079px) {
   .messenger-bottom {
@@ -618,15 +667,7 @@ body {
   }
 }
 
-.messenger-messages-box {
-  position: absolute;
-  width: 100%;
-  height: 75%;
-  left: 0%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-}
+
 
 .msg-own {
   position: relative;
