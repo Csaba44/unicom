@@ -5,7 +5,7 @@ import Message from "./Message";
 export default function Messenger() {
   const [user, setUser] = useState(false);
   const [channels, setChannels] = useState(false);
-  const [messages, setMessages] = useState(false);
+  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currChannel, setCurrChannel] = useState(false);
   const [currChannelName, setCurrChannelName] = useState(false);
@@ -24,21 +24,26 @@ export default function Messenger() {
     firebase
       .firestore()
       .collection("messages")
+      .orderBy("createdAt")
+      .limit(15)
       .onSnapshot((querySnapshot) => {
         let items = [];
         querySnapshot.forEach((doc) => {
-          console.log(doc.data());
           items.push(doc);
         });
-
+        
         setMessages(items);
         setLoading(false);
       });
   }
 
+
+
   useEffect(() => {
     getMessages();
   }, []);
+
+
 
   firebase.auth().onAuthStateChanged(function (fUser) {
     if (fUser) {
@@ -53,8 +58,6 @@ export default function Messenger() {
     setCurrChannel(id);
     setCurrChannelName(name);
   }
-  //log:
-  console.log(currChannel + " :: " + currChannelName);
 
   function scrollToBottom(elementID) {
     /*window.setInterval(function () {
@@ -75,15 +78,14 @@ export default function Messenger() {
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         sender: user.uid,
         senderName: user.displayName,
-      })
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+        inChannel: currChannel,
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
       });
     input.value = "";
   }
+
 
   if (!loading) {
     if (user) {
@@ -127,8 +129,10 @@ export default function Messenger() {
                   {currChannelName ? (
                     <>
                       <div className="messenger-messages-box" id="messages-box">
-                        {messages.map((msg) => (
+                        {
+                        messages.map((msg) => (
                           <Message
+                            Display={msg.data().inChannel == currChannel ? true : false}
                             Own={msg.data().sender == user.uid ? true : false}
                             Content={msg.data().content}
                             Who={msg.data().senderName}
@@ -137,7 +141,8 @@ export default function Messenger() {
                                 ? msg
                                     .data()
                                     .createdAt.toDate()
-                                    .toLocaleTimeString("en-US") + ' on ' + 
+                                    .toLocaleTimeString("en-US") +
+                                  " on " +
                                   msg.data().createdAt.toDate().toDateString()
                                 : "Now"
                             }
