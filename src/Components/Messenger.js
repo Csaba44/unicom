@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../Firebase";
+import Message from "./Message";
 
 export default function Messenger() {
   const [user, setUser] = useState(false);
   const [channels, setChannels] = useState(false);
+  const [messages, setMessages] = useState(false);
   const [loading, setLoading] = useState(false);
   const [currChannel, setCurrChannel] = useState(false);
   const [currChannelName, setCurrChannelName] = useState(false);
@@ -15,6 +17,27 @@ export default function Messenger() {
       setChannels(data.docs.map((doc) => doc));
     };
     fetchChannels();
+  }, []);
+
+  function getMessages() {
+    setLoading(true);
+    firebase
+      .firestore()
+      .collection("messages")
+      .onSnapshot((querySnapshot) => {
+        let items = [];
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data());
+          items.push(doc);
+        });
+
+        setMessages(items);
+        setLoading(false);
+      });
+  }
+
+  useEffect(() => {
+    getMessages();
   }, []);
 
   firebase.auth().onAuthStateChanged(function (fUser) {
@@ -32,6 +55,35 @@ export default function Messenger() {
   }
   //log:
   console.log(currChannel + " :: " + currChannelName);
+
+  function scrollToBottom(elementID) {
+    /*window.setInterval(function () {
+      var elem = document.getElementById(elementID);
+      elem.scrollTop = elem.scrollHeight;
+    }, 500);*/
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("message-input");
+    let txtContent = input.value;
+    firebase
+      .firestore()
+      .collection("messages")
+      .add({
+        channel: "",
+        content: txtContent,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        sender: user.uid,
+        senderName: user.displayName,
+      })
+      .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
+    input.value = "";
+  }
 
   if (!loading) {
     if (user) {
@@ -72,14 +124,45 @@ export default function Messenger() {
                   </div>
                 </div>
                 <div className="messenger-flexbox">
-                  {currChannelName ? 
-                    <div className="messenger-bottom">
-                      <input type="text" placeholder="Type your message here..." />
-                      <div className="messenger-send-box">
-                        <i className="far fa-reply-all "></i>
+                  {currChannelName ? (
+                    <>
+                      <div className="messenger-messages-box" id="messages-box">
+                        {messages.map((msg) => (
+                          <Message
+                            Own={msg.data().sender == user.uid ? true : false}
+                            Content={msg.data().content}
+                            Who={msg.data().senderName}
+                            CreatedAt={
+                              msg.data().createdAt
+                                ? msg
+                                    .data()
+                                    .createdAt.toDate()
+                                    .toLocaleTimeString("en-US") + ' on ' + 
+                                  msg.data().createdAt.toDate().toDateString()
+                                : "Now"
+                            }
+                            key={msg.id}
+                          ></Message>
+                        ))}
+                        {scrollToBottom("messages-box")}
                       </div>
-                    </div>
-                   : <></>}
+                      <div className="messenger-bottom">
+                        <input
+                          type="text"
+                          placeholder="Type your message here..."
+                          id="message-input"
+                        />
+                        <div className="messenger-send-box">
+                          <i
+                            onClick={sendMessage}
+                            className="far fa-reply-all "
+                          ></i>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,11 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-* {
-  font-family: "Poppins";
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 .header-container {
+  font-family: "Poppins";
   z-index: 1;
   position: relative;
   display: flex;
@@ -42,6 +40,7 @@
 }
 
 .header-left {
+  font-family: "Poppins";
   position: relative;
   height: 100%;
   width: 100%;
@@ -52,6 +51,7 @@
 }
 
 .header-right {
+  font-family: "Poppins";
   position: relative;
   height: 100%;
   width: 100%;
@@ -115,6 +115,7 @@
 }
 
 .login-container {
+  font-family: "Poppins";
   z-index: 0;
   position: absolute;
   display: flex;
@@ -215,6 +216,7 @@
 }
 
 .messenger-container {
+  font-family: "Poppins";
   position: absolute;
   top: 30%;
   width: 100%;
@@ -231,6 +233,7 @@ body {
 }
 
 .channels-container {
+  font-family: "Poppins";
   position: relative;
   width: 25%;
   height: 94.1%;
@@ -249,6 +252,7 @@ body {
 }
 
 .ccard-flexbox {
+  font-family: "Poppins";
   position: relative;
   width: 100%;
   height: 100%;
@@ -258,6 +262,7 @@ body {
 }
 
 .ccard-container {
+  font-family: "Poppins";
   position: relative;
   width: 95%;
   width: 95%;
@@ -389,6 +394,7 @@ body {
 
 #noChannels {
   color: #fff;
+  font-family: "Poppins";
 }
 #noChannels::after {
   content: "yet.";
@@ -396,6 +402,7 @@ body {
 }
 
 .messages-container {
+  font-family: "Poppins";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -406,6 +413,7 @@ body {
 }
 
 .messages-box {
+  font-family: "Poppins";
   position: absolute;
   background-color: #1e2431;
   width: 74.9%;
@@ -414,6 +422,7 @@ body {
 }
 
 .messages-header {
+  font-family: "Poppins";
   position: absolute;
   top: 0;
   width: 100%;
@@ -430,6 +439,7 @@ body {
 }
 
 .messages-header-left {
+  font-family: "Poppins";
   position: relative;
   width: 100%;
   display: flex;
@@ -446,6 +456,7 @@ body {
 }
 
 .messages-header-right {
+  font-family: "Poppins";
   position: relative;
   width: 100%;
   display: flex;
@@ -453,6 +464,7 @@ body {
 }
 
 .messages-header-right-user-pfp {
+  font-family: "Poppins";
   border-radius: 50%;
   width: 2.5em;
   margin-right: 1.5%;
@@ -473,6 +485,7 @@ body {
 }
 
 .messenger-flexbox {
+  font-family: "Poppins";
   position: relative;
   top: 5.8em;
   width: 100%;
@@ -482,6 +495,7 @@ body {
 }
 
 .messenger-bottom {
+  font-family: "Poppins";
   position: relative;
   display: flex;
   width: 100%;
@@ -492,7 +506,7 @@ body {
 }
 
 .messenger-bottom input {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   outline: none;
   background-color: #333745;
   color: #fff;
@@ -507,6 +521,7 @@ body {
 }
 
 .messenger-send-box {
+  font-family: "Poppins";
   position: relative;
   height: 82%;
   width: 5%;
@@ -532,75 +547,129 @@ body {
   background-color: #333745;
 }
 
-
 @media screen and (max-height: 883px) {
-    .messenger-bottom {
-      top: 76%;
-    }
+  .messenger-bottom {
+    top: 76%;
+  }
 }
 @media screen and (max-height: 751px) {
-    .messenger-bottom {
-      top: 75%;
-    }
+  .messenger-bottom {
+    top: 75%;
+  }
 }
 @media screen and (max-height: 687px) {
-    .messenger-bottom {
-      top: 74%;
-    }
+  .messenger-bottom {
+    top: 74%;
+  }
 }
 @media screen and (max-height: 626px) {
-    .messenger-bottom {
-      top: 70%;
-    }
+  .messenger-bottom {
+    top: 70%;
+  }
 }
 @media screen and (max-height: 501px) {
-    .messenger-bottom {
-      top: 65%;
-    }
+  .messenger-bottom {
+    top: 65%;
+  }
 }
 @media screen and (max-height: 412px) {
-    .messenger-bottom {
-      top: 60%;
-    }
+  .messenger-bottom {
+    top: 60%;
+  }
 }
 @media screen and (max-height: 333px) {
-    .messenger-bottom {
-      top: 55%;
-    }
+  .messenger-bottom {
+    top: 55%;
+  }
 }
-
 
 @media screen and (max-width: 1079px) {
-    .messenger-bottom{
-      justify-content: left;
-      margin-left: 1%;
-    }
-    .messenger-send-box {
-      width: 8%;
-    }
+  .messenger-bottom {
+    justify-content: left;
+    margin-left: 1%;
+  }
+  .messenger-send-box {
+    width: 8%;
+  }
 }
 @media screen and (max-width: 667px) {
-    .messenger-bottom input{
-      width: 85%;
-    }
-    .messenger-send-box {
-      width: 13.2%;
-    }
+  .messenger-bottom input {
+    width: 85%;
+  }
+  .messenger-send-box {
+    width: 13.2%;
+  }
 }
 @media screen and (max-width: 419px) {
-    .messenger-bottom input{
-      width: 78%;
-    }
-    .messenger-send-box {
-      width: 19%;
-    }
+  .messenger-bottom input {
+    width: 78%;
+  }
+  .messenger-send-box {
+    width: 19%;
+  }
 }
 @media screen and (max-width: 261px) {
-    .messenger-bottom input{
-      width: 70%;
-    }
-    .messenger-send-box {
-      font-size: 1.1em;
-      width: 25%;
-    }
+  .messenger-bottom input {
+    width: 70%;
+  }
+  .messenger-send-box {
+    font-size: 1.1em;
+    width: 25%;
+  }
+}
+
+.messenger-messages-box {
+  position: absolute;
+  width: 100%;
+  height: 75%;
+  left: 0%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.msg-own {
+  position: relative;
+  width: fit-content;
+  max-width: 30%;
+  word-wrap: break-word;
+  height: fit-content;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.15em;
+  background-color: #049ca4;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 0.2%;
+  padding-bottom: 0.2%;
+  border-radius: 30px;
+  margin-top: 0.5%;
+ align-self: flex-end;
+ margin-right: 1%;
+}
+
+.msg-sender {
+  position: relative;
+  font-size: 0.75em;
+  color: rgba(255,255,255,0.6);
+}
+
+.msg-others {
+  position: relative;
+  width: fit-content;
+  max-width: 30%;
+  word-wrap: break-word;
+  height: fit-content;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.15em;
+  background-color: #4e5361;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 0.2%;
+  padding-bottom: 0.2%;
+  border-radius: 30px;
+  margin-top: 0.5%;
+ align-self: flex-start;
+ margin-left: 1%;
 }
