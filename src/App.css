@@ -236,7 +236,7 @@ body {
 .channels-container {
   font-family: "Poppins";
   position: relative;
-  width: 25%;
+  width: 20%;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -260,6 +260,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .ccard-container {
@@ -427,10 +428,10 @@ body {
 .messages-container {
   font-family: "Poppins";
   position: absolute;
-  width: 75%;
+  width: 80%;
   height: 100%;
   top: 0;
-  left: 25%;
+  left: 20%;
   z-index: -50;
 }
 
