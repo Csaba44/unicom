@@ -1,6 +1,6 @@
-#Unicom
+# Unicom
 
-##Dependencies:
+## Dependencies:
 
 ```npm i create-react-app
 npm i firebase@^8.10.0
